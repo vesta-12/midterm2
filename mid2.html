@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <title>Афиша событий</title>
+    <link rel="stylesheet" href="mid2.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">
+        <img src="https://ij.org/wp-content/uploads/2015/09/courthouse.png" alt="Логотип" />
+    </div>
+    <div class="city-selector">
+        <span>Город: </span>
+        <select id="citySelect">
+            <option value="Almaty" selected>Алматы</option>
+            <option value="Astana">Астана</option>
+            <option value="Shymkent">Шымкент</option>
+            <option value="Karaganda">Караганда</option>
+            <option value="Aktobe">Актобе</option>
+            <option value="Pavlodar">Павлодар</option>
+            <option value="Semey">Костанай</option>
+            <option value="Taraz">Тараз</option>
+            <option value="Atyrau">Атырау</option>
+        </select>
+    </div>
+    <nav class="nav">
+        <a href="#about-us">О нас</a>
+        <a href="#ticket-cart">Корзина билетов</a>
+        <a href="#bannerr">Премьеры</a>
+    </nav>
+</header>
+
+<section id="bannerr" class="banner">
+    <div class="slide active" style="background-image: url('https://i.pinimg.com/originals/56/25/cb/5625cbc84fa7eeef13e5a7ce1a49f345.jpg');">
+        <div class="content">
+            <h1>Призрак Оперы</h1>
+            <p>16 января — 20 февраля</p>
+        </div>
+    </div>
+    <div class="slide" style="background-image: url('https://cdn.culture.ru/images/314d8bbd-0112-5a16-b118-3c841500e9ac');">
+        <div class="content">
+            <h1>Лебединое озеро</h1>
+            <p>10 февраля — 2 марта</p>
+        </div>
+    </div>
+    <div class="slide" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/ab66d4f6-0754-445f-ba0a-df782ce0356f/1920x');">
+        <div class="content">
+            <h1>Одержимость</h1>
+            <p>15 декабря — 30 января</p>
+        </div>
+    </div>
+
+    <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+<section id="cinema" class="cinema-section">
+    <h2>Кино</h2>
+    <p>Насладитесь лучшими фильмами в нашем кинотеатре!</p>
+    <div class="cinema-slider">
+        <div class="cinema-track">
+            <!-- Прямоугольнички с фильмами будут генерироваться динамически через JS -->
+        </div>
+        <button class="slider-btn prev-btn">&#8249;</button>
+        <button class="slider-btn next-btn">&#8250;</button>
+    </div>
+</section>
+
+<section id="autoplay-video" class="video-section">
+    <div class="video-container">
+        <video class="video-frame" autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/7233537/7233537-uhd_2560_1080_25fps.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео-тег.
+        </video>
+    </div>
+</section>
+
+<section id="theatre" class="theatre-section">
+    <h2>Театр</h2>
+    <p>Погрузитесь в мир классических произведений!</p>
+    <div class="theatre-slider">
+        <div class="theatre-track">
+        </div>
+        <button class="slider-btn-t prev-btn-t">&#8249;</button>
+        <button class="slider-btn-t next-btn-t">&#8250;</button>
+    </div>
+</section>
+
+<div class="video-box">
+    <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/6899905/6899905-uhd_2732_1440_25fps.mp4" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+    <video autoplay muted loop>
+        <source src="https://videos.pexels.com/video-files/6899899/6899899-uhd_2732_1440_25fps.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+</div>
+
+<section id="concert" class="concert-section">
+    <h2>Концерты</h2>
+    <p>Окунитесь в мир живой музыки!</p>
+    <div class="concert-slider">
+        <div class="concert-track">
+        </div>
+        <button class="slider-btn-c prev-btn-c">&#8249;</button>
+        <button class="slider-btn-c next-btn-c">&#8250;</button>
+    </div>
+</section>
+
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Бронирование билетов</h2>
+        <form id="bookingForm">
+            <label for="firstName">Имя:</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Фамилия:</label>
+            <input type="text" id="lastName" required>
+
+            <label for="date">Дата:</label>
+            <input type="date" id="date" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" min="1" required>
+
+            <label for="tickets">Количество билетов:</label>
+            <input type="number" id="tickets" min="1" required>
+
+            <button class="confirm-btn">Подтвердить</button>
+        </form>
+    </div>
+</div>
+<div id="success-message" class="success-message">
+    <p id="message-text"></p>
+</div>
+
+<section id="ticket-cart" class="cart-section">
+    <h2>Корзина билетов</h2>
+    <div class="cart-container">
+        <p id="empty-cart-message">На данный момент нет забронированных билетов.</p>
+        <ul id="cart-list" class="hidden"></ul>
+    </div>
+</section>
+
+<section id="about-us" class="about-us-section">
+    <h2>О нас</h2>
+    <div class="about-content">
+        <div class="location">
+            <h3>Наш офис:</h3>
+            <p>г. Алматы, ул. Тимирязева, д. 10, оф. 25</p>
+        </div>
+        <div class="contacts">
+            <h3>Контакты:</h3>
+            <ul>
+                <li>Телефон: +7 (705) 123-45-67</li>
+                <li>Телефон: +7 (701) 987-65-43</li>
+                <li>Телефон: +7 (705) 555-35-35</li>
+                <li>Email: info@culture-events.kz</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 Афиша Событий | Все права защищены</p>
+        <p>
+            Следите за нами:
+            <a href="#" class="social-link">ВКонтакте</a> |
+            <a href="#" class="social-link">Instagram</a> |
+            <a href="#" class="social-link">Facebook</a>
+        </p>
+    </div>
+</footer>
+
+<script src="mid2.js"></script>
+</body>
+</html>

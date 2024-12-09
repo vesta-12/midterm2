@@ -1,0 +1,810 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #000;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: rgba(32, 32, 32, 0.8);
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 5px #bfbfbf, 0 0 10px #e3e3e3;
+}
+
+
+/*БАННЕР*/
+.banner {
+    /*делаем его относительно исходного места*/
+    position: relative;
+    /*Viewport Height ( vh ) — это процентная величина от общей высоты области просмотра. у нас 70%*/
+    height: 70vh;
+    /*скрываем содержимое за пределами блока элемента*/
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*переход*/
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    /*полная прозрачность элемента*/
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.content {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    /*фиксированный элемент, поэтому выравниваем по оси Х*/
+    transform: translateX(-50%);
+    display: flex;
+    /*ставим отступы между ними */
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+/*ФИЛЬМЫ*/
+.cinema-section {
+    margin: 50px 0;
+    text-align: left;
+    padding: 20px;
+    background-color: rgba(32, 32, 32, 0.8);
+    border-radius: 10px;
+}
+
+.cinema-section h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cinema-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.cinema-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.cinema-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.cinema-movie {
+    flex: 0 0 30%;
+    margin: 0 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    height: 400px; /* Высота прямоугольника */
+}
+
+.cinema-movie img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контейнер для кнопок */
+.cinema-movie .buttons {
+    display: flex;
+    justify-content: space-around; /* Равное расстояние между кнопками */
+    gap: 10px; /* Отступ между кнопками */
+    position: relative; /* Убираем absolute, чтобы они правильно располагались */
+}
+
+/* Стили для кнопок */
+.cinema-movie .buttons button {
+    flex: 1; /* Кнопки одинакового размера */
+    padding: 70px 70px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Эффект наведения */
+.cinema-movie .buttons button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%; /* Круглые кнопки */
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.cinema-movie .rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #1abc9c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+.cinema-movie .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    color: #fefefe;
+    background-color: rgba(0, 0, 0, 0.6); /* Полупрозрачный фон */
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Нежная тень */
+    white-space: nowrap; /* Исключить перенос текста */}
+
+.cinema-movie .buttons {
+    position: absolute;
+    bottom: 10px;
+    width: 94.5%;
+    padding: 10px;
+}
+
+.cinema-movie .buttons button {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 50px; /* Кнопки с круглой формой */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cinema-movie .buttons button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 10px;
+    border-radius: 50%; /* Круглые кнопки для стрелок */
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+/* Описание фильма */
+.cinema-movie .description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    color: white; /* Белый текст */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 17px; /* Крупный шрифт */
+    width: 80%; /* Ширина блока с описанием */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    display: none; /* Скрываем по умолчанию */
+}
+
+/* Показ описания */
+.cinema-movie .description:not(.hidden) {
+    display: block;
+}
+
+/* Секция театра */
+.theatre-section {
+    margin: 50px 0;
+    text-align: left;
+    padding: 20px;
+    background-color: rgba(32, 32, 32, 0.8);
+    border-radius: 10px;
+}
+
+.theatre-section h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.theatre-section p {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* Театральный слайдер */
+.theatre-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.theatre-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.theatre-performance {
+    flex: 0 0 30%;
+    margin-right: 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    height: 400px; /* Вытянутые вертикально прямоугольники */
+}
+
+.theatre-performance img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контейнер для кнопок */
+.theatre-performance .buttons-t {
+    display: flex;
+    justify-content: space-around; /* Равное расстояние между кнопками */
+    gap: 10px; /* Отступ между кнопками */
+    position: absolute;
+    bottom: 10px;
+    width: 94.5%;
+    padding: 10px;
+}
+
+/* Стили для кнопок */
+.theatre-performance .buttons-t button {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 50px; /* Кнопки с круглой формой */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Эффект наведения */
+.theatre-performance .buttons-t button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Кнопки слайдера */
+.slider-btn-t {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 15px;
+    border-radius: 50%;
+}
+
+.prev-btn-t {
+    left: 10px;
+}
+
+.next-btn-t {
+    right: 10px;
+}
+.slider-btn-t {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 10px;
+    border-radius: 50%; /* Круглые кнопки для стрелок */
+}
+
+/* Описание театральной постановки */
+.theatre-performance .description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    color: white; /* Белый текст */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 17px; /* Крупный шрифт */
+    width: 80%; /* Ширина блока с описанием */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    display: none; /* Скрыт по умолчанию */
+}
+
+/* Показ описания */
+.theatre-performance .description:not(.hidden) {
+    display: block;
+}
+
+.video-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Расстояние между видео */
+    padding: 20px; /* Отступы от краев страницы */
+    box-sizing: border-box; /* Учитывает padding в общей ширине */
+}
+
+.video-box video {
+    flex: 1; /* Видео равной ширины */
+    max-width: calc(50% - 10px); /* Учитываем gap */
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 15px; /* Скругленные углы */
+    object-fit: contain; /* Гарантируем, что содержимое видео полностью видно */
+    margin-bottom: 20px; /* Расстояние снизу */
+    background: #000; /* Для эстетики, если видео не загрузится */
+}
+
+.city-selector {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-left: -450px;
+}
+
+
+/*ГОРОДА*/
+/* Стили для выпадающего списка */
+.city-selector select {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении на выпадающий список */
+.city-selector select:hover {
+    background-color: #e0e0e0;
+}
+
+
+/*КОНЦЕРТЫ*/
+.concert-section {
+    margin: 50px 0;
+    text-align: left;
+    padding: 20px;
+    background-color: rgba(32, 32, 32, 0.8);
+    border-radius: 10px;
+}
+
+.concert-section h2 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.concert-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.concert-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.concert-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.concert-stars {
+    flex: 0 0 30%;
+    margin: 0 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    height: 400px; /* Высота прямоугольника */
+}
+
+.concert-stars img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контейнер для кнопок */
+.concert-stars .buttons {
+    display: flex;
+    justify-content: space-around; /* Равное расстояние между кнопками */
+    gap: 10px; /* Отступ между кнопками */
+    position: absolute;
+    bottom: 10px;
+    width: 94.5%;
+    padding: 10px;
+
+}
+
+/* Стили для кнопок */
+.concert-stars .buttons button {
+    flex: 1; /* Кнопки одинакового размера */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+}
+
+/* Эффект наведения */
+.concert-stars .buttons button:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+.slider-btn-c {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 15px;
+    border-radius: 50%; /* Круглые кнопки */
+}
+
+.prev-btn-c {
+    left: 10px;
+}
+
+.next-btn-c {
+    right: 10px;
+}
+
+.concert-stars .buttons button {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 50px; /* Кнопки с круглой формой */
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.slider-btn-c {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+    padding: 10px;
+    border-radius: 50%; /* Круглые кнопки для стрелок */
+}
+
+.concert-stars .description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8); /* Полупрозрачный черный фон */
+    color: white; /* Белый текст */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 17px; /* Крупный шрифт */
+    width: 80%; /* Ширина блока с описанием */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Легкая тень */
+    display: none; /* Скрыт по умолчанию */
+}
+
+/* Показ описания */
+.concert-stars .description:not(.hidden) {
+    display: block;
+}
+
+.video-section {
+    margin: 50px 0;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Контейнер для видео */
+.video-container {
+    width: 100%; /* Занимает всю ширину */
+    height: 300px; /* Высота контейнера */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Видео заполняет весь контейнер */
+.video-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Убирает рамки, обрезая лишнее */
+}
+
+/*ФОРМА*/
+.modal {
+    display: none; /* Скрываем модальное окно */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    width: 400px;
+    color: white;
+    text-align: left;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+input {
+    width: 96%;
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: white;
+}
+/* Кнопка "Подтвердить" */
+.modal-content .confirm-btn {
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    color: white; /* Белый текст */
+    padding: 12px 20px; /* Внутренние отступы */
+    border-radius: 50px; /* Закругленные края */
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 14px; /* Размер текста */
+    display: block; /* Делает кнопку блочной */
+    width: 70%; /* Ширина кнопки */
+    margin: 20px auto 0; /* Центрируем кнопку и добавляем отступ сверху */
+    transition: background 0.3s ease;
+}
+
+.modal-content .confirm-btn:hover {
+    background: rgba(0, 0, 0, 1);
+}
+
+.success-message {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(26, 188, 156);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+    font-size: 18px;
+}
+
+.cart-section {
+    margin: 50px 0;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cart-container {
+    margin-top: 20px;
+}
+
+#empty-cart-message {
+    font-size: 18px;
+    color: #aaaaaa;
+}
+
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+#cart-list li {
+    background-color: #292929;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.about-us-section {
+    margin: 50px 0;
+    padding: 20px;
+    background-color: #292b2f;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+.about-us-section h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #f6f6f6;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.about-content .location,
+.about-content .contacts {
+    width: 90%;
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.about-content h3 {
+    color: #1abc9c;
+    margin-bottom: 10px;
+}
+
+.about-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-content li {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+
+.footer {
+    background-color: #292b2f;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    border-top: 2px solid #1abc9c;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.footer .social-link {
+    color: #1abc9c;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.footer .social-link:hover {
+    color: #fff;
+}
